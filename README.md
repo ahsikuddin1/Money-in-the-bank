@@ -7,40 +7,64 @@ Money in the bank is a monthly expense and savings tracker built in React using 
 
 ## Wireframes
 https://wireframe.cc/uFrOh1 (Desktop)
+
 https://wireframe.cc/lc7hyc (Mobile)
+
+https://wireframe.cc/CaoRt1 (Tablet)
 
 
 ## React Component Hiearchy
-
+```
 |- App
-| -- Links
 | --- Title
-| ---
-	| --- Monthly Spending
+| --- Links
+| --- Current balance
+| --- Monthly 
+	| --- Balance/expenses	
+	| --- Categories
 		| --- Bills
-		| --- Miscellanous
-		| 
-| --- Comarison
-	
-## API
+		| --- Miscellanious
+| --- Comparison
 
-The airtables will be used to render the data of monthly expenses on the page.
+```
+
+
+
+
+
+## API
+Airtable is returning the data for the base as follows:
+
+    "records": [
+        {
+            "id": "rec5wjCGjveXFnQFI",
+            "fields": {
+                "dueDate": "13th of every month",
+                "bills": "Phone",
+                "amount": "$95"
+            },
+            "createdTime": "2020-09-03T13:33:30.000Z"
+	    
+        },
+	
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP 
-- Use clean coding
-- Render data on page 
-- Allow user to add their own transactions
-- Use dynamic Css
-- Use both class and functional components
+- Display changes in budget/expenses
+- Allow users to add more transactions
+- Allow users to view comparisons in monthly spending/balances.
+- Implement media queries for mobile, tablet, and desktops
+
 
 #### PostMVP  
 
-- Add external links for users to see budgeting tips
+- Add graphs
 - Memes for saving money.
+- Add links to display useful budgeting methods.
+
+
 
 
 #### SWOT Analysis
