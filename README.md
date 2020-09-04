@@ -8,9 +8,9 @@ Money in the bank is a monthly expense and savings tracker built in React using 
 ## Wireframes
 https://wireframe.cc/uFrOh1 (Desktop)
 
-https://wireframe.cc/lc7hyc (Mobile)
+https://wireframe.cc/lc7hyc (Tablet)
 
-https://wireframe.cc/CaoRt1 (Tablet)
+https://wireframe.cc/CaoRt1 (Mobile)
 
 
 ## React Component Hiearchy
@@ -70,6 +70,24 @@ Airtable is returning the data for the base as follows:
 #### SWOT Analysis
 
 So far I am actually understanding React but I will defintley need to review more. Class components are tricky and most of the time confuse me. However, this project will allow more practice with class components and will strengthen my skillset.
+
+## Project Schedule
+
+This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
+
+You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
+
+|  Day | Deliverable | Status
+|---|---| ---|
+|Septmber 3-4| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|September 4| Project Approval | Complete
+|September 5| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|September 6| Airtable connection/ Component Creation | Incomplete
+|September 7| Build main functionality: Expense tracker  | Incomplete
+|September 8| MVP | Incomplete
+|September 9| Deployment/Editing | Incomplete
+|September 10| Post-MVP| Incomplete
+|September 11| Presentations | Incomplete
 
 
 
