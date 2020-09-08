@@ -20,7 +20,7 @@ https://wireframe.cc/lc7hyc (Mobile)
 		| --- Bills
 		| --- Miscellanous
 		| 
-| --- Comarison
+| --- Comparison
 	
 ## API
 
@@ -40,7 +40,8 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 #### PostMVP  
 
 - Add external links for users to see budgeting tips
-- Memes for saving money.
+- Adding links to my linkedin, github.
+
 
 
 #### SWOT Analysis
