@@ -1,9 +1,5 @@
 import React from 'react'
-
-
 const Expense2 = ({ previous }) => {
-  
-
 return (
   <div>
     <h2 class='spending2'>{previous.fields.spending}</h2>
