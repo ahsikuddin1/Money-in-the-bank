@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
-import BalanceExpense1 from "./BalanceExpense1"
 import Expense1 from "./Expense1"
 import Expense2 from "./Expense2"
 import './App.css';
+import UserTransaction from './AddTransactions';
+import BudgetLinks from './BudgetingLinks';
+
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -22,6 +23,7 @@ function App() {
 
   }, []);
   
+  
   const [previouses, setPreviouses] = useState([])
   useEffect(() => {
     const apiCall = async () => {
@@ -37,38 +39,63 @@ function App() {
 
   }, []);
 
+  const [links, setLinks] = useState([])
+  useEffect(() => {
+    const apiCall = async () => {
+      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Links`;
+       const response = await axios.get(airtableURL, {
+        headers: {
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+        },
+      });
+      setLinks(response.data.records);
+    }
+    apiCall();
+
+  }, []);
 
   return (
-    <div className="App">
-      <h1>Money in the bank</h1>
+    <div>
+      <h1 className='money'>Money in the bank</h1>
       <div >
        
-        <h1>Expenses Tracker</h1>
-        <h2 className='currenMonth'>Current Month</h2>
-        <table>{expenses.map(expense => 
+        <h1 className='title'>Expenses Tracker</h1>
+        <div >
+        <h2 className='currentMonth' >Current Month</h2>
+         <p className='currentmonthexpense' >{expenses.map(expense => 
           <Expense1 
           key={expenses.id}
             expense={expense}
           />
           )}
-        </table>
+         </p>
+       
         
         
     <br></br>
-        <center>
-          <table>
+        <div className='previousMonth'>
        {previouses.map(previous =>
           <Expense2
           key={previouses.id}
           previous={previous}
         /> 
             )}
-          </table>
-        </center>
-        
 
+<div className='budgetinglinks'>
+       {links.map(link =>
+          <BudgetLinks
+          key={links.id}
+          link={link}
+        /> 
+            )}
+
+
+        <UserTransaction />
+</div>
       </div>
-    </div>
+      </div>
+      </div>
+      </div>
   );
 }
 
