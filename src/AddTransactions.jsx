@@ -1,53 +1,77 @@
-import React, { useState } from 'react'
-import Expense1 from './Expense1'
-import Expense2 from './Expense2'
+import React, { useState } from "react";
+import axios from "axios";
+import Expense2 from "./Expense2";
 
 const AddTransaction = () => {
-
-  const [text, setText] = useState('');
+  const [spending, setSpending] = useState("");
   const [amount, setAmount] = useState(0);
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState([]);
 
-
-  const onSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const newTransaction = {
-      // id: Math.floor(Math.random() * 1000),
-      text,
-      amount: +amount
-
-      
-    }
+    
+    const airtableExpenses = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses`
+    const airtablePrevious = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Previous`
    
+    const fields = {
+      spending,
+      amount
+    };
+    console.log({fields})
+      setTransactions((transactions) => [...transactions, { fields }]);
     
-    setTransactions(transactions => [...transactions, newTransaction])
+    await axios.post(airtableExpenses, { fields },
+      {
+        headers: { 
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      });
     
-  }
-  return (
-      <div>
-        <h3>Add new transaction</h3>
-        <form onSubmit={onSubmit}>
-          <div>
-            <label htmlFor="text">Transaction name</label>
-            <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
-          </div>
-          <div>
-            <label htmlFor="amount"
-            >Amount <br />
-            </label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-          <ul id="transaction-list">
-            {transactions.map((transaction) => (
-              <li>{transaction.id} </li>
-            ))}
-          </ul> 
-          </div>
-          <button className="btn">Add transaction</button>
-        </form>
-     </div>
-    )
+     await axios.post( airtablePrevious, { fields },
+      {
+        headers: {
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  };
   
-}
+  return (
+    <div>
+      <h3>Add new transaction</h3>
+      <form onSubmit={handleSubmit}>
+        {/* <div> */}
+          <label htmlFor="spending">Transaction name</label>
+          <input
+            type="text"
+            value={spending}
+            onChange={(e) => setSpending(e.target.value)}
+          />
+        {/* </div> */}
+        {/* <div> */}
+          <label htmlFor="amount">
+            Amount <br />
+          </label>
+          <input
+            type="number"
+            name='amount'
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          {/* <ul id="transaction-list"> */}
+            {/* {transactions.map((transaction, index) => ( */}
+              {/* <div key={index}>
+                <li> {transaction.newTransaction.text}</li>
+                <li> {transaction.newTransaction.amount}</li>
+              </div>
+            ))} */}
+          {/* </ul> */}
+        {/* </div> */}
+        <button type="submit" className="btn">Add transaction</button>
+      </form>
+    </div>
+  );
+};
 
 export default AddTransaction;

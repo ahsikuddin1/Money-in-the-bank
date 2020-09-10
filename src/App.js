@@ -8,13 +8,15 @@ import BalanceExpense2 from "./BalanceExpense2"
 import AddTransactions from "./AddTransactions";
 import BudgetingLinks from "./BudgetingLinks";
 import "./App.css";
+import BudgetLinks from "./BudgetingLinks";
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [previouses, setPreviouses] = useState([]);
   const [links, setLinks] = useState([]);
+  console.log(links) 
   useEffect(() => {
     const getExpenses = async () => {
-      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses`;
+      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses `;
       const response = await axios.get(airtableURL, {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
@@ -51,26 +53,29 @@ function App() {
       <div>
         <h1 className="title">Expenses Tracker</h1>
         <div>
-            
-            
-            <h2 className="currentMonth"> Current Month</h2>
-          <p className="currentmonthexpense">
-            {expenses.map((expense) => (
-              <Expense1 key={expenses.id} expense={expense} />
-            ))}
-            </p>
-            <AddTransactions />
-            {/* {transaction.map((transaction) => (<div>transaction.id</div>))} */}
-          <br></br>
-          <div className="previousMonth">
-            {previouses.map((previous) => (
-              <Expense2 key={previouses.id} previous={previous} />
-            ))}
-              <AddTransactions />
             <div className="budgetinglinks">
               {links.map((link) => (
-                <BudgetingLinks key={links.id} link={link} />
+                <a href={links.url}>{links.url}</a>
+              
               ))}
+            
+            <h2 className="currentMonth"> Current Month</h2>
+          <h3> <BalanceExpense1 /> </h3>
+              <h3 className="currentmonthexpense">
+            {expenses.map((expense) => (
+              <Expense1 key={expense.id} expense={expense} />
+            ))}
+            </h3>
+            <AddTransactions />
+          <br></br>
+              <div>
+              <h2 className="previousMonth"> Previous Month</h2>
+            <h3>{previouses.map((previous) => (
+              <Expense2 key={previous.id} previous={previous} />
+            ))}
+                </h3>
+              <AddTransactions />
+            
              <Route path="/expense1">
                    <Expense1 />
                 </Route>
@@ -78,7 +83,7 @@ function App() {
                   <Expense2 />
                 </Route>
                 <Route path="/budgetinglinks">
-                  <BudgetingLinks />
+                 <BudgetingLinks />
                 </Route>
                 <Route path="/addtransactions">
                   <AddTransactions />

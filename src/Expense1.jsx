@@ -5,7 +5,7 @@ return (
   <div>
    
     <h2> {expense.fields.spending}</h2>
-     <p> ${expense.fields.amount}</p>
+     <h3> ${expense.fields.amount}</h3>
     
       </div>
     
