@@ -12,7 +12,7 @@ export default function BalanceExpense1({ expenses }) {
   const sum = amounts.reduce((acc, curr) => acc + curr, 0);
   const transaction = balance - sum
   return (
-    <div>
+    <div className='balance1'>
       <h5>{`Starting Balance: $${balance}`}</h5>
       <h5>{`Expenses: $${sum}`}</h5>
       <h5>{`Current Balance: $${transaction}`}</h5>

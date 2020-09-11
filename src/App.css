@@ -1,17 +1,36 @@
 .currentMonth {
-  display: flex;
+  display: flexbox;
   justify-content: space-between;
-  margin: 50px, 0px;
-  
-
+  margin: 20px auto;
+  width: 350px;
+  text-align: right;
+  padding: 10px;
+  position: relative;
+  font-size: 20px;
 }
 .firstmonthamount {
-  font-size: 18px;
+  font-size: 16px;
+  position: relative; 
 }
+.balance1 {
+  font-size: 16px;
+  position: relative; 
+}
+.firstmonthspending {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0;
+  position: relative; 
+}
+.currentmonthexpense {
+ display: grid;
+ margin: 0px auto;
+ width: 350px;
+ text-align: left;
+ font-size: 18px
 
-/* .currentmonthexpense {
-/* display: inline-grid; */
-
+}
 .money {
   text-align: center
 }
@@ -24,15 +43,16 @@
 .spending {
   text-transform: capitalize
 }
-/* input[type='text'],
+
+input[type='text'],
 input[type='number'] {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
   font-size: 16px;
   padding: 10px;
-  width: 100%;
-} */
+  width: 50%;
+} 
 .btn {
   cursor: pointer;
   background-color: skyblue;
@@ -42,5 +62,52 @@ input[type='number'] {
   font-size: 16px;
   margin: 10px 0 30px;
   padding: 10px;
-  width: 100%;
+  width: 50%;
+  position: relative; 
 }
+.newTransaction {
+  position: relative; 
+}
+.transactions {
+  position: relative; 
+}
+.amounts {
+  position: relative; 
+}
+@media (max-width: 1025px) {
+  
+  }
+
+
+/* .secondmonthamount{
+
+} */
+/* @media (max-width: 850px) {
+  .main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title-bar {
+    height: 5vh;
+    margin-bottom: 20px;
+  }
+  .title {
+    position: absolute;
+    left: 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+    padding-top: 1vh;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    height: 5vh;
+    z-index: 2;
+  }
+} */

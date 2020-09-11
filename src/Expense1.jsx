@@ -6,7 +6,7 @@ return (
    
     <h2 className='firstmonthamount'> {expense.fields.spending}</h2>
     
-     <h3> ${expense.fields.amount}</h3>
+     <h3 className='firstmonthspending'> ${expense.fields.amount}</h3>
     
       </div>
     

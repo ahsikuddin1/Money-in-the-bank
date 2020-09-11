@@ -39,9 +39,9 @@ const AddTransaction = () => {
   
   return (
     <div>
-      <h3>Add new transaction</h3>
+      <h3 className='newTransaction'>Add new transaction</h3>
       <form onSubmit={handleSubmit}>
-         <div> 
+         <div className='transactions'> 
           <label htmlFor="spending">Transaction name</label>
           <input
             type="text"
@@ -49,7 +49,7 @@ const AddTransaction = () => {
             onChange={(e) => setSpending(e.target.value)}
           />
          </div> 
-         <div> 
+         <div className='amounts'> 
           <label htmlFor="amount">
             Amount <br />
           </label>
@@ -58,15 +58,16 @@ const AddTransaction = () => {
             name='amount'
             value={amount}
             onChange={(e) => setAmount(parseInt(e.target.value))}
-          />
+          /> <h4>Newest transaction</h4>
            <ul id="transaction-list"> 
             {transactions.map((transaction, index) => ( 
               <div key={index}>
-                <li> {transaction.fields.spending}</li>
-                <li> {transaction.fields.amount}</li>
+                {transaction.fields.spending}
+                 <br></br>
+                {transaction.fields.amount}
               </div>
-            ))} 
-          </ul> 
+             ))}  
+           </ul>  
         </div> 
         <button type="submit" className="btn">Add transaction</button>
       </form>
