@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Expense2 from "./Expense2";
+
 
 const AddTransaction = () => {
   const [spending, setSpending] = useState("");
@@ -19,7 +19,7 @@ const AddTransaction = () => {
     };
     console.log({fields})
       setTransactions((transactions) => [...transactions, { fields }]);
-    
+    console.log(typeof amount)
     await axios.post(airtableExpenses, { fields },
       {
         headers: { 
@@ -41,15 +41,15 @@ const AddTransaction = () => {
     <div>
       <h3>Add new transaction</h3>
       <form onSubmit={handleSubmit}>
-        {/* <div> */}
+         <div> 
           <label htmlFor="spending">Transaction name</label>
           <input
             type="text"
             value={spending}
             onChange={(e) => setSpending(e.target.value)}
           />
-        {/* </div> */}
-        {/* <div> */}
+         </div> 
+         <div> 
           <label htmlFor="amount">
             Amount <br />
           </label>
@@ -57,17 +57,17 @@ const AddTransaction = () => {
             type="number"
             name='amount'
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(parseInt(e.target.value))}
           />
-          {/* <ul id="transaction-list"> */}
-            {/* {transactions.map((transaction, index) => ( */}
-              {/* <div key={index}>
-                <li> {transaction.newTransaction.text}</li>
-                <li> {transaction.newTransaction.amount}</li>
+           <ul id="transaction-list"> 
+            {transactions.map((transaction, index) => ( 
+              <div key={index}>
+                <li> {transaction.fields.spending}</li>
+                <li> {transaction.fields.amount}</li>
               </div>
-            ))} */}
-          {/* </ul> */}
-        {/* </div> */}
+            ))} 
+          </ul> 
+        </div> 
         <button type="submit" className="btn">Add transaction</button>
       </form>
     </div>

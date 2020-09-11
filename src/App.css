@@ -5,10 +5,13 @@
   
 
 }
-
-.currentmonthexpense {
-/* display: inline-grid; */
+.firstmonthamount {
+  font-size: 18px;
 }
+
+/* .currentmonthexpense {
+/* display: inline-grid; */
+
 .money {
   text-align: center
 }
@@ -18,4 +21,26 @@
 .previousMonth {
   text-align: center
 }
-
+.spending {
+  text-transform: capitalize
+}
+/* input[type='text'],
+input[type='number'] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+} */
+.btn {
+  cursor: pointer;
+  background-color: skyblue;
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
