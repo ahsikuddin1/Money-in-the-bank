@@ -52,8 +52,9 @@ function App() {
   return (
     <div>
       <div>
+        <Link to= "/" >
         <h1 className="money">Money in the bank</h1>
-        
+        </Link>
        
          
         <nav>  
@@ -106,7 +107,7 @@ function App() {
           </div>   
         </Route>   
         
-          {/* <Route exact path="/balanceexpense1">
+          <Route exact path="/balanceexpense1">
                   <BalanceExpense1 />
                 </Route>
                 <Route exact path="/expense1">
@@ -120,7 +121,7 @@ function App() {
                 </Route>
                 <Route exact path="/addtransactions">
                   <AddTransactions />
-          </Route>   */}
+          </Route>   
       </div>
     </div>
       

@@ -69,7 +69,7 @@ const AddTransaction = (props) => {
                 {transaction.fields.amount}
               </div>
              ))}  
-           </ul>   
+           </ul>    
         </div> 
         <button type="submit" className="btn">Add transaction</button>
       </form>
