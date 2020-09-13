@@ -10,7 +10,7 @@ const AddTransaction = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // const airtableExpenses = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses`
+    
     const airtablePrevious = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Previous`
    
     const fields = {
@@ -21,13 +21,7 @@ const AddTransaction = (props) => {
    
     setTransactions((transactions) => [...transactions, { fields }]);
     console.log(typeof amount)
-    // await axios.post(airtableExpenses, { fields },
-    //   {
-    //     headers: { 
-    //       'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
-    //       'Content-Type': 'application/json',
-    //     },
-    //   });
+    
     
      await axios.post( airtablePrevious, { fields  },
       {
@@ -41,9 +35,7 @@ const AddTransaction = (props) => {
     setSpending("")
     setAmount("")
     
-    // props.setPreviouses((prevPreviouses) => !prevPreviouses);
-    // setSpending("")
-    // setAmount("")
+    
   };
 
   
@@ -69,7 +61,7 @@ const AddTransaction = (props) => {
             value={amount}
             onChange={(e) => setAmount(parseInt(e.target.value))}
           /> <h4>Newest transaction</h4>
-           {/* <ul id="transaction-list"> 
+            <ul id="transaction-list"> 
             {transactions.map((transaction, index) => ( 
               <div key={index}>
                 {transaction.fields.spending}
@@ -77,7 +69,7 @@ const AddTransaction = (props) => {
                 {transaction.fields.amount}
               </div>
              ))}  
-           </ul>   */}
+           </ul>   
         </div> 
         <button type="submit" className="btn">Add transaction</button>
       </form>

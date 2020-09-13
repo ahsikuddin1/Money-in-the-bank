@@ -28,21 +28,13 @@ const AddTransaction = (props) => {
         },
       });
     
-    //  await axios.post( airtablePrevious, { fields  },
-    //   {
-    //     headers: {
-    //       'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
-    //       'Content-Type': 'application/json',
-    //     },
-    //    });
+  
     
     props.setFetch((prevFetch) => !prevFetch);
     setSpending("")
     setAmount("")
     
-    // props.setPreviouses((prevPreviouses) => !prevPreviouses);
-    // setSpending("")
-    // setAmount("")
+    
   };
 
   
@@ -68,7 +60,7 @@ const AddTransaction = (props) => {
             value={amount}
             onChange={(e) => setAmount(parseInt(e.target.value))}
           /> <h4>Newest transaction</h4>
-           {/* <ul id="transaction-list"> 
+            <ul id="transaction-list"> 
             {transactions.map((transaction, index) => ( 
               <div key={index}>
                 {transaction.fields.spending}
@@ -76,7 +68,7 @@ const AddTransaction = (props) => {
                 {transaction.fields.amount}
               </div>
              ))}  
-           </ul>   */}
+           </ul>   
         </div> 
         <button type="submit" className="btn">Add transaction</button>
       </form>
