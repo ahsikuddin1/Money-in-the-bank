@@ -10,7 +10,8 @@ const AddTransaction = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const airtableExpenses = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses`
+    // const airtableExpenses = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Expenses`
+    const airtablePrevious = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Previous`
    
     const fields = {
       spending,
@@ -20,21 +21,21 @@ const AddTransaction = (props) => {
    
     setTransactions((transactions) => [...transactions, { fields }]);
     console.log(typeof amount)
-    await axios.post(airtableExpenses, { fields },
-      {
-        headers: { 
-          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      });
-    
-    //  await axios.post( airtablePrevious, { fields  },
+    // await axios.post(airtableExpenses, { fields },
     //   {
-    //     headers: {
+    //     headers: { 
     //       'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
     //       'Content-Type': 'application/json',
     //     },
-    //    });
+    //   });
+    
+     await axios.post( airtablePrevious, { fields  },
+      {
+        headers: {
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
+          'Content-Type': 'application/json',
+        },
+       });
     
     props.setFetch((prevFetch) => !prevFetch);
     setSpending("")

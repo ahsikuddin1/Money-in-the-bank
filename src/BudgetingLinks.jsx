@@ -7,11 +7,16 @@ const BudgetLinks = ({ link }) => {
  
 
 return (
-  <div>
+ 
     
-     <a href = {link.fields.url}> <h2> {link.fields.name} </h2> </a>
+  
+  <div >
+    <h1></h1>
     
-  </div>
+    <a href={link.fields.url}> {link.fields.name} </a>
+    
+    </div>
+ 
 )
 
 }
