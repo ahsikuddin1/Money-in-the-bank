@@ -57,7 +57,7 @@ function App() {
         </Link>
        
          
-        <nav>  
+        <nav className="budgetbar" >  
           <Link to="/budgetinglinks"> <h3 className="budgetinglinks" > Budget Tips </h3> </Link>
         
         </nav>
@@ -71,7 +71,7 @@ function App() {
           
         </Route>
         <Route exact path = "/">
-            <div>
+            <div className ="budgetdisplay">
            <h2 className="currentMonth">Current Month</h2>
             {" "}
                 <BalanceExpense1
@@ -86,10 +86,9 @@ function App() {
               setFetch={setFetch}
               fetch={fetch}
             /> 
-          </div>
-          <br></br>
           
-          <div>
+          
+      
             <h2 className="previousMonth">Previous Month</h2>
             <h3>
               {" "}

@@ -8,17 +8,29 @@
 .money {
   font-size: 28px;
   display: flex;
-  justify-content: center; left:-50px;
+  justify-content: center; 
   align-items: center;
+}
+.budgetbar {
+  display: flex;
+  align-items: flex-start;
+}
+.budgetinglinks {
+  display: flex;
+  text-justify: auto;
+  align-items: flex-start; 
+  width: fit-content;
+}
+.budgetdisplay {
+  display: flexbox;
+  flex-direction: row
 }
 .currentMonth {
   display: flex;
   justify-content: left;
 }
 .firstmonthamount {
-  display: grid;
-  grid-auto-columns: auto;
-  align-items: start;
+  display: flex;
     grid-area: left;
     margin: 10px;
     font-family: "Open Sans", serif;
