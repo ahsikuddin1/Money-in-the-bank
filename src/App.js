@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import Expense1 from "./Expense1";
 import Expense2 from "./Expense2";
@@ -9,9 +9,7 @@ import AddTransactions from "./AddTransactions";
 import AddTransactions2 from "./AddTransactions";
 import BudgetingLinks from "./BudgetingLinks";
 import "./App.css";
-// import "./AddTransactions.css";
-// import "./BalanceExpense1.css";
-// import "./Expense1.css"
+
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [previouses, setPreviouses] = useState([]);
