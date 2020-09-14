@@ -25,7 +25,6 @@ function App() {
         },
       });
       setExpenses(response.data.records);
-      console.log(response.data.records);
     };
     const getPrevious = async () => {
       const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Previous`;
@@ -57,7 +56,7 @@ function App() {
         </Link>
        
          
-        <nav className="budgetbar" >  
+        <nav >  
           <Link to="/budgetinglinks"> <h3 className="budgetinglinks" > Budget Tips </h3> </Link>
         
         </nav>
@@ -72,24 +71,26 @@ function App() {
         </Route>
         <Route exact path = "/">
             <div className ="budgetdisplay">
-           <h2 className="currentMonth">Current Month</h2>
+           {/* <h2 className="currentMonth">Current Month</h2> */}
             {" "}
                 <BalanceExpense1
                   expenses={expenses} />{" "}
            
-            <h3 className="currentmonthexpense">
+            <h3>
               {expenses.map((expense) => (
                 <Expense1 key={expense.id} expense={expense} />
               ))}
-            </h3>
-            <AddTransactions 
+              <AddTransactions 
               setFetch={setFetch}
               fetch={fetch}
             /> 
+            </h3 >
+            
+            
           
           
       
-            <h2 className="previousMonth">Previous Month</h2>
+            {/* <h2 className="previousMonth">Previous Month</h2> */}
             <h3>
               {" "}
               <BalanceExpense2 previouses={previouses} />{" "}
@@ -98,12 +99,13 @@ function App() {
               {previouses.map((previous) => (
                 <Expense2 key={previous.id} previous={previous} />
               ))}
-            </h3>
-            <AddTransactions2
+               <AddTransactions2
               setFetch={setFetch}
               fetch={fetch}
-            />
-          </div>   
+              />
+            </h3>
+           
+          </div>  
         </Route>   
         
           <Route exact path="/balanceexpense1">

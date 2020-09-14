@@ -10,7 +10,8 @@ export default function BalanceExpense2({ previouses }) {
   const sum = amounts.reduce((acc, curr) => acc + curr, 0);
   const transaction = balance - sum;
   return (
-    <div className="balance2">
+    <div >
+      <h2>Previous Month</h2>
       <h5>{`Starting Balance: $${balance}`}</h5>
       <h5>{`Expenses: $${sum}`}</h5>
       <h5>{`Current Balance: $${transaction}`}</h5>

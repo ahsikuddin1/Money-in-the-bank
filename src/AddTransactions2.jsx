@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AddTransaction = (props) => {
-  const [spending, setSpending] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [transactions, setTransactions] = useState([]);
+const AddTransaction2 = (props) => {
+  const [spending2, setSpending2] = useState("");
+  const [amount2, setAmount2] = useState(0);
+  const [transactions2, setTransactions2] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const airtablePrevious = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Previous`;
 
-    const fields = {
-      spending,
-      amount,
+    const fields2 = {
+      spending2,
+      amount2,
     };
 
-    setTransactions((transactions) => [...transactions, { fields }]);
+    setTransactions2((transactions2) => [...transactions2, { fields2 }]);
     console.log(typeof amount);
 
     await axios.post(
       airtablePrevious,
-      { fields },
+      { fields2 },
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`,
@@ -31,13 +31,13 @@ const AddTransaction = (props) => {
     );
 
     props.setFetch((prevFetch) => !prevFetch);
-    setSpending("");
-    setAmount("");
+    setSpending2("");
+    setAmount2("");
   };
 
   return (
     <div>
-      <h3 className="newTransaction">Add new transaction</h3>
+      <h3 className="newtransaction">Add new transaction</h3>
       <form onSubmit={handleSubmit}>
         <div className="transactions">
           <label htmlFor="spending">Transaction name</label>
@@ -55,11 +55,11 @@ const AddTransaction = (props) => {
             type="number"
             name="amount"
             value={amount}
-            onChange={(e) => setAmount(parseInt(e.target.value))}
+            onChange={(e) => setAmount2(parseInt(e.target.value))}
           />{" "}
           <h4>Newest transaction</h4>
-          <ul id="transaction-list">
-            {transactions.map((transaction, index) => (
+          <ul className="transactionlist">
+            {transactions2.map((transaction, index) => (
               <div key={index}>
                 {transaction.fields.spending}
                 <br></br>
@@ -76,4 +76,4 @@ const AddTransaction = (props) => {
   );
 };
 
-export default AddTransaction;
+export default AddTransaction2;

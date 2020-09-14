@@ -36,9 +36,9 @@ const AddTransaction = (props) => {
 
   return (
     <div>
-      <h3 className="newTransaction">Add new transaction</h3>
+      <h3 className="newtransaction">Add new transaction</h3>
       <form onSubmit={handleSubmit}>
-        <div className="transactions">
+        <div>
           <label htmlFor="spending">Transaction name</label>
           <input
             type="text"
@@ -57,7 +57,7 @@ const AddTransaction = (props) => {
             onChange={(e) => setAmount(parseInt(e.target.value))}
           />{" "}
           <h4>Newest transaction</h4>
-          <ul id="transaction-list">
+          <ul className="transactionlist">
             {transactions.map((transaction, index) => (
               <div key={index}>
                 {transaction.fields.spending}
