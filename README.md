@@ -6,7 +6,7 @@ Money in the bank is a monthly expense and savings tracker built in React using 
 
 
 ## Wireframes
-https://wireframe.cc/uFrOh1(Desktop)
+https://wireframe.cc/uFrOh1 (Desktop)
 
 https://wireframe.cc/lc7hyc (Tablet)
 
